@@ -1,7 +1,7 @@
 from dotenv import load_dotenv
 import streamlit as st
-from langchain_ollama import ChatOllama
-#from langchain_groq import ChatGroq
+#from langchain_ollama import ChatOllama
+from langchain_groq import ChatGroq
 
 load_dotenv()
 
@@ -20,10 +20,10 @@ for message in st.session_state.chat_history:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
 
-llm = ChatOllama(
+llm = ChatGroq(
     #model="llama3.1:latest",
-    model="llama3.1:latest",
-    #model="llama-3.3-70b-versatile",
+    #model="llama3.1:latest",
+    model="llama-3.3-70b-versatile",
     temperature=0.0
 )
 
